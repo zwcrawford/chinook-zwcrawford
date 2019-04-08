@@ -1,7 +1,7 @@
 
 -- Which sales agent made the most in sales in 2009?
 
-SELECT TOP 1 e.FirstName + ' ' + e.LastName AS 'Full Name', e.Title, SUM(i.Total) AS 'Total Sales'
+SELECT e.FirstName + ' ' + e.LastName AS 'Full Name', e.Title, CONCAT('', FORMAT(SUM(i.Total), 'C', 'en-us')) AS 'Total Sales for 2009'
   FROM Employee e
 	   LEFT JOIN Customer c ON e.EmployeeId = c.SupportRepId
 	   LEFT JOIN Invoice i ON c.CustomerId = i.CustomerId
